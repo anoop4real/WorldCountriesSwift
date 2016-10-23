@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+//From :https://gist.github.com/gonzalezreal/92507b53d2b1e267d49a
 protocol ReusableView: class {
     static var defaultReuseIdentifier: String { get }
 }
