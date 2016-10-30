@@ -14,7 +14,7 @@ class CountryDataSource<ItemsType, CellType:UITableViewCell>: NSObject, UITableV
     private var items: [ItemsType]
     private let identifier: String
     private var configureCellClosure: ConfigureCellClosure
-    //private let cellType: CellType
+
 
     init(withData items: [ItemsType], andId identifier: String, withConfigBlock config:@escaping ConfigureCellClosure) {
 
@@ -31,6 +31,11 @@ class CountryDataSource<ItemsType, CellType:UITableViewCell>: NSObject, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: self.identifier, for: indexPath) as! CellType
         configureCellClosure(items[indexPath.row], cell)
         return cell
+    }
+
+    func item(at indexpath: IndexPath) -> ItemsType {
+
+        return items[indexpath.row]
     }
 
 }

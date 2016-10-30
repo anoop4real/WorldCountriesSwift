@@ -16,6 +16,6 @@ struct SimpleCountry {
     init(countryName: String, countryCode: String) {
 
         self.countryName = countryName
-        self.countryCode = countryCode
+        self.countryCode = countryCode.lowercased()
     }
 }

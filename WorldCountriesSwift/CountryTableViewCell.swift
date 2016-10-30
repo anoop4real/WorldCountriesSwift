@@ -10,8 +10,8 @@ import UIKit
 
 class CountryTableViewCell: UITableViewCell {
 
-    @IBOutlet private var flagImageView: UIImageView!
-    @IBOutlet private var countryNameLabel: UILabel!
+    @IBOutlet private weak var flagImageView: UIImageView!
+    @IBOutlet private weak var countryNameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

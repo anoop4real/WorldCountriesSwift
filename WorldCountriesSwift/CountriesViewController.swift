@@ -8,11 +8,15 @@
 
 import UIKit
 
-class CountriesViewController: UIViewController {
+class CountriesViewController: UIViewController, SegueHandlerType {
 
     var countryDataStore = CountriesStore()
-    @IBOutlet private var countryTableView: UITableView!
+    @IBOutlet private weak var countryTableView: UITableView!
     var dataSource: CountryDataSource<SimpleCountry, CountryTableViewCell>?
+
+    enum SegueIdentifier: String {
+        case ShowDetails
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,14 +40,32 @@ class CountriesViewController: UIViewController {
     }
 
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+
+        switch segueIdentifierForSegue(segue: segue) {
+        case .ShowDetails:
+            print("ShowDetails")
+            guard let indexPath = countryTableView.indexPathForSelectedRow else {
+
+                fatalError("Couldnt find the clicked index path")
+            }
+            guard let selectedCountry = dataSource?.item(at: indexPath) else {
+                fatalError("Couldnt find the country")
+            }
+            // So indexpath exists
+            let countryDetailsVC = segue.destination as! CountriesDetailsViewController
+
+            countryDetailsVC.selectedCountryCode = selectedCountry.countryCode
+            countryDetailsVC.selectedCountryName = selectedCountry.countryName
+            countryTableView.deselectRow(at: indexPath, animated: true)
+        }
     }
-    */
+
 
 }
