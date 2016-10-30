@@ -14,8 +14,10 @@ class CountriesStore {
     static let sharedStore = CountriesStore()
 
     private var countryArray: [SimpleCountry] = []
+    // We only have one network request at a time, so using a singleton instance of network manager
+    private var networkManager = NetworkDataManager.sharedNetworkmanager
 
-    // MARK: -GET COUNTRIES
+    // MARK: - GET COUNTRIES
     // Method to get the country names and country codes.
     func countryData() -> [SimpleCountry] {
 
@@ -40,6 +42,35 @@ class CountriesStore {
         countryArray = countryArray.sorted { $0.countryName < $1.countryName}
 
         return countryArray
+    }
+    func fetchDetailsOfCountryWith(code: String, completion:(_ data: Array<AnyObject>?, _ error: Error?) -> Void) -> Void {
+
+        let url = createURLFromParameters(parameters: [:], pathparam: code)
+        let urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 2.0)
+
+        networkManager.fetchDataWithUrlRequest(urlRequest) { (status, anyData) in
+
+            print(anyData)
+        }
+    }
+    private func createURLFromParameters(parameters: [String:AnyObject], pathparam: String?) -> URL {
+
+        var components = URLComponents()
+        components.scheme = Constants.CountryAPIDetails.APIScheme
+        components.host   = Constants.CountryAPIDetails.APIHost
+        components.path   = Constants.CountryAPIDetails.APIPath
+        if let paramPath = pathparam {
+            components.path = Constants.CountryAPIDetails.APIPath + "\(paramPath)"
+        }
+        if !parameters.isEmpty {
+            components.queryItems = [URLQueryItem]()
+            for (key, value) in parameters {
+                let queryItem = URLQueryItem(name: key, value: "\(value)")
+                components.queryItems!.append(queryItem)
+            }
+        }
+
+        return components.url!
     }
 
 }

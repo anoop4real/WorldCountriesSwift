@@ -8,11 +8,11 @@
 
 import UIKit
 
-class NetworkDataManager: NSObject {
+class NetworkDataManager: NSObject, URLSessionTaskDelegate {
 
     // Singleton instance
     static let sharedNetworkmanager = NetworkDataManager()
-    
+
     // Save images in cache
     static let sharedCache: NSCache<NSString, UIImage> = {
         let cache = NSCache<NSString, UIImage>()
@@ -22,50 +22,46 @@ class NetworkDataManager: NSObject {
         return cache
     }()
     // Create a session
-    let session:URLSession = {
-        
+    let session: URLSession = {
+
         let config = URLSessionConfiguration.default
-        
+        config.urlCache = nil
+
         return URLSession(configuration: config)
     }()
-    
+
     // Method to fetch data from URL
-    func fetchDataWithUrl(_ url:URL, completion:@escaping (_ success:Bool,_ fetchedData:Any)->Void) {
-        
-        
-        let urlRequest = URLRequest(url: url)
+    func fetchDataWithUrlRequest(_ urlRequest: URLRequest, completion:@escaping (_ success: Bool, _ fetchedData:Any) -> Void) {
+
         let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) -> Void in
-            if error != nil{
+            if error != nil {
                 print(error!.localizedDescription)
-            }else
-            {
-                do
-                {
+            } else {
+                do {
                     let jsonObject:Any = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
                     completion(true, jsonObject)
-                }catch
-                {
+                } catch {
                     print("Error")
                 }
             }
-        }) 
+        })
         task.resume()
-        
+
     }
 }
 extension URL {
-    
+
     typealias ImageCacheCompletion = (UIImage) -> Void
-    
+
     /// Retrieves a pre-cached image, or nil if it isn't cached.
     /// You should call this before calling fetchImage.
     var cachedImage: UIImage? {
         return NetworkDataManager.sharedCache.object(
             forKey: absoluteString as NSString)
     }
-    func isValidUrl()->Bool{
-        
-        if(self.scheme!.hasPrefix("http") || (self.scheme?.hasPrefix("https"))!){
+    func isValidUrl() -> Bool {
+
+        if(self.scheme!.hasPrefix("http") || (self.scheme?.hasPrefix("https"))!) {
             return true
         }
         return false
@@ -89,20 +85,19 @@ extension URL {
                         }
                 }
             }
-        }) 
+        })
         task.resume()
     }
-    
+
 }
 
-extension String{
-    
-    func isValidForUrl()->Bool{
-        
-        if(self.hasPrefix("http") || self.hasPrefix("https")){
+extension String {
+
+    func isValidForUrl() -> Bool {
+
+        if(self.hasPrefix("http") || self.hasPrefix("https")) {
             return true
         }
         return false
     }
 }
-

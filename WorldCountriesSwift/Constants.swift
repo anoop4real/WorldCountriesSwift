@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+struct Constants {
+
+    struct CountryAPIDetails {
+        static let APIScheme = "https"
+        static let APIHost = "restcountries.eu"
+        static let APIPath = "/rest/v1/alpha/"
+    }
+}

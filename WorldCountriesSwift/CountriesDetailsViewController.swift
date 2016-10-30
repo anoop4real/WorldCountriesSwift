@@ -10,6 +10,8 @@ import UIKit
 
 class CountriesDetailsViewController: UIViewController {
 
+    // Use shared store
+    var countryDataStore = CountriesStore()
     @IBOutlet private weak var flagImageView: UIImageView!
     @IBOutlet private weak var name: UILabel!
     @IBOutlet private weak var countryDetailTableView: UITableView!
@@ -20,7 +22,6 @@ class CountriesDetailsViewController: UIViewController {
 
     var selectedCountryName: String!
     var selectedCountryCode: String!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
@@ -39,6 +40,10 @@ class CountriesDetailsViewController: UIViewController {
         // Fetch the image corresponding to the country code from the assets folder.
         flagImageView.image = UIImage(named: selectedCountryCode)
         name.text = selectedCountryName
+
+        countryDataStore.fetchDetailsOfCountryWith(code: selectedCountryCode) { (dataArray, error) in
+
+        }
     }
     /*
     // MARK: - Navigation
