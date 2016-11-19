@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Y6-99-0rV" id="dVW-Id-2Vs">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="in" translatesAutoresizingMaskIntoConstraints="NO" id="zms-XX-wNi">
@@ -107,11 +107,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0aN-VD-Di6">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountryDetailCell" id="h2i-Gw-aHF" customClass="CountryDetailTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorldCountriesSwift.CountryDetailTableViewCell" id="h2i-Gw-aHF" customClass="CountryDetailTableViewCell" customModule="WorldCountriesSwift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h2i-Gw-aHF" id="BE6-KS-QfJ">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="89" placeholderIntrinsicHeight="21" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6MK-EY-1Ep">
@@ -136,8 +136,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="detail" destination="MYa-pL-LPX" id="D7Q-p1-aCY"/>
-                                            <outlet property="title" destination="6MK-EY-1Ep" id="KqD-EO-QxC"/>
+                                            <outlet property="detailLabel" destination="MYa-pL-LPX" id="N0N-Df-mvR"/>
+                                            <outlet property="titleLabel" destination="6MK-EY-1Ep" id="jFS-ON-HsX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -177,6 +177,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="eVg-9V-OUk" id="x26-Ju-qKv"/>
                         <outlet property="countryDetailTableView" destination="0aN-VD-Di6" id="51M-zZ-GF6"/>
+                        <outlet property="countryDetailsTableView" destination="0aN-VD-Di6" id="EDj-ao-JJ5"/>
                         <outlet property="flagImageView" destination="wJA-53-ogz" id="GTw-XR-iNL"/>
                         <outlet property="loaderView" destination="6vs-6x-HoP" id="b0M-2i-U1C"/>
                         <outlet property="name" destination="Hgr-c7-S7s" id="RfG-DN-TEj"/>

@@ -43,15 +43,36 @@ class CountriesStore {
 
         return countryArray
     }
-    func fetchDetailsOfCountryWith(code: String, completion:(_ data: Array<AnyObject>?, _ error: Error?) -> Void) -> Void {
+    func fetchDetailsOfCountryWith(code: String, completion:@escaping (_ data: [GenericCellData], _ error: Error?) -> Void) -> Void {
 
         let url = createURLFromParameters(parameters: [:], pathparam: code)
         let urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 2.0)
 
-        networkManager.fetchDataWithUrlRequest(urlRequest) { (status, anyData) in
+        networkManager.fetchDataWithUrlRequest(urlRequest) {[weak self] (status, anyData) in
+            if let countryDict = anyData as? [String:Any] {
+                completion((self?.countryDataWith(countryDict))!, nil)
 
+            }
             print(anyData)
         }
+    }
+    private func countryDataWith(_ dictionary: [String: Any]) -> [GenericCellData] {
+
+        var countryDetailsArray = [GenericCellData]()
+
+        for key in dictionary.keys {
+            if let value = dictionary[key] as? String {
+
+                let cellData = createGenericCellData(with: key, and: value)
+                countryDetailsArray.append(cellData)
+            }
+        }
+        return countryDetailsArray
+    }
+    private func createGenericCellData(with key: String, and detail: String) -> GenericCellData {
+
+        let celldata = GenericCellData(with: key, and: detail)
+        return celldata
     }
     private func createURLFromParameters(parameters: [String:AnyObject], pathparam: String?) -> URL {
 
