@@ -26,6 +26,7 @@
 		76AE490E1DB403900086AF94 /* SimpleCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AE490D1DB403900086AF94 /* SimpleCountry.swift */; };
 		76AE49131DB412440086AF94 /* CountriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AE49121DB412440086AF94 /* CountriesViewController.swift */; };
 		76AE49161DB413880086AF94 /* CountriesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AE49151DB413880086AF94 /* CountriesStore.swift */; };
+		76E97F671DE05457000B0044 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 76E97F661DE05457000B0044 /* README.md */; };
 		76F8CE7B1DC48FFB006ABE11 /* CountriesDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F8CE7A1DC48FFB006ABE11 /* CountriesDetailsViewController.swift */; };
 		76F8CE7C1DC48FFB006ABE11 /* CountriesDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F8CE7A1DC48FFB006ABE11 /* CountriesDetailsViewController.swift */; };
 		76F8CE7D1DC48FFB006ABE11 /* CountriesDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F8CE7A1DC48FFB006ABE11 /* CountriesDetailsViewController.swift */; };
@@ -81,6 +82,7 @@
 		76AE490D1DB403900086AF94 /* SimpleCountry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCountry.swift; sourceTree = "<group>"; };
 		76AE49121DB412440086AF94 /* CountriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesViewController.swift; sourceTree = "<group>"; };
 		76AE49151DB413880086AF94 /* CountriesStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesStore.swift; sourceTree = "<group>"; };
+		76E97F661DE05457000B0044 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		76F8CE7A1DC48FFB006ABE11 /* CountriesDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountriesDetailsViewController.swift; sourceTree = "<group>"; };
 		76F8CE7E1DC5E9CF006ABE11 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		76F8CE831DC5F2CC006ABE11 /* NetworkDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDataManager.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		76AE48D21DB359960086AF94 = {
 			isa = PBXGroup;
 			children = (
+				76E97F661DE05457000B0044 /* README.md */,
 				76AE48DD1DB359960086AF94 /* WorldCountriesSwift */,
 				76AE48F21DB359960086AF94 /* WorldCountriesSwiftTests */,
 				76AE48FD1DB359970086AF94 /* WorldCountriesSwiftUITests */,
@@ -395,6 +398,7 @@
 				76F8CE8C1DC7EC26006ABE11 /* GenericCellData.swift in Sources */,
 				76F8CE7B1DC48FFB006ABE11 /* CountriesDetailsViewController.swift in Sources */,
 				76AE49161DB413880086AF94 /* CountriesStore.swift in Sources */,
+				76E97F671DE05457000B0044 /* README.md in Sources */,
 				76AE490E1DB403900086AF94 /* SimpleCountry.swift in Sources */,
 				76AE48DF1DB359960086AF94 /* AppDelegate.swift in Sources */,
 				768A48BB1DC9393000FE3D08 /* CountryDetailTableViewCell.swift in Sources */,
