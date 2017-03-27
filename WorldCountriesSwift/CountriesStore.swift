@@ -74,7 +74,7 @@ class CountriesStore {
         let celldata = GenericCellData(with: key, and: detail)
         return celldata
     }
-    private func createURLFromParameters(parameters: [String:AnyObject], pathparam: String?) -> URL {
+    private func createURLFromParameters(parameters: [String:Any], pathparam: String?) -> URL {
 
         var components = URLComponents()
         components.scheme = Constants.CountryAPIDetails.APIScheme
