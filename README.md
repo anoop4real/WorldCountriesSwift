@@ -15,3 +15,5 @@ Note: Added details pages
 Pending to add error handling.
 
 `Disclaimer` - This app is developed as part of my sample projects. For country codes, country flags I have not done any reviews.
+
+Added some test Fastlane
