@@ -24,7 +24,7 @@ class CountriesViewController: UIViewController, SegueHandlerType {
             cell.configureCell(with: country)
         }
         countryTableView.dataSource = dataSource
-        countryTableView.rowHeight = UITableViewAutomaticDimension
+        countryTableView.rowHeight = UITableView.automaticDimension
         countryTableView.estimatedRowHeight = 80.0
 
         // Do any additional setup after loading the view.

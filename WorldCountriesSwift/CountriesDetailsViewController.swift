@@ -57,7 +57,7 @@ class CountriesDetailsViewController: UIViewController {
             }
 
         }
-        countryDetailTableView.rowHeight = UITableViewAutomaticDimension
+        countryDetailTableView.rowHeight = UITableView.automaticDimension
         countryDetailTableView.estimatedRowHeight = 80.0
     }
     /*
