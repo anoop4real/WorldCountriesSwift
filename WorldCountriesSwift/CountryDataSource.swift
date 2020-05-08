@@ -8,18 +8,15 @@
 
 import UIKit
 
-class CountryDataSource<ItemsType, CellType:UITableViewCell>: NSObject, UITableViewDataSource {
-
+class CountryDataSource<ItemsType, CellType: UITableViewCell>: NSObject, UITableViewDataSource {
     typealias ConfigureCellClosure = (_ item: ItemsType, _ cell: CellType) -> Void
     private var items: [ItemsType]
     private let identifier: String
     private var configureCellClosure: ConfigureCellClosure
 
-
-    init(withData items: [ItemsType], andId identifier: String, withConfigBlock config:@escaping ConfigureCellClosure) {
-
+    init(withData items: [ItemsType], andId identifier: String, withConfigBlock config: @escaping ConfigureCellClosure) {
         self.identifier = identifier
-        self.items      = items
+        self.items = items
         self.configureCellClosure = config
     }
 
@@ -28,14 +25,12 @@ class CountryDataSource<ItemsType, CellType:UITableViewCell>: NSObject, UITableV
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.identifier, for: indexPath) as! CellType
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! CellType
         configureCellClosure(items[indexPath.row], cell)
         return cell
     }
 
     func item(at indexpath: IndexPath) -> ItemsType {
-
         return items[indexpath.row]
     }
-
 }

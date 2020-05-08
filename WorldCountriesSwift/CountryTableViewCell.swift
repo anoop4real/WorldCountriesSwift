@@ -9,9 +9,8 @@
 import UIKit
 
 class CountryTableViewCell: UITableViewCell {
-
-    @IBOutlet private weak var flagImageView: UIImageView!
-    @IBOutlet private weak var countryNameLabel: UILabel!
+    @IBOutlet private var flagImageView: UIImageView!
+    @IBOutlet private var countryNameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,9 +23,7 @@ class CountryTableViewCell: UITableViewCell {
     }
 
     func configureCell(with country: SimpleCountry) {
-
         self.flagImageView.image = UIImage(named: country.countryCode.lowercased())
         self.countryNameLabel.text = country.countryName
     }
-
 }

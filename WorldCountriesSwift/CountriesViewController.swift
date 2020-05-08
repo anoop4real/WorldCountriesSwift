@@ -9,18 +9,18 @@
 import UIKit
 
 class CountriesViewController: UIViewController, SegueHandlerType {
-
     var countryDataStore = CountriesStore()
-    @IBOutlet private weak var countryTableView: UITableView!
+    @IBOutlet private var countryTableView: UITableView!
     var dataSource: CountryDataSource<SimpleCountry, CountryTableViewCell>?
 
     enum SegueIdentifier: String {
         case ShowDetails
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-         dataSource = CountryDataSource<SimpleCountry, CountryTableViewCell>(withData: countryDataStore.countryData(), andId: CountryTableViewCell.defaultReuseIdentifier) { (country, cell) in
+        dataSource = CountryDataSource<SimpleCountry, CountryTableViewCell>(withData: countryDataStore.countryData(), andId: CountryTableViewCell.defaultReuseIdentifier) { country, cell in
             cell.configureCell(with: country)
         }
         countryTableView.dataSource = dataSource
@@ -34,12 +34,11 @@ class CountriesViewController: UIViewController, SegueHandlerType {
         super.viewDidAppear(animated)
         countryTableView.reloadData()
     }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 
     // MARK: - Navigation
 
@@ -52,7 +51,6 @@ class CountriesViewController: UIViewController, SegueHandlerType {
         case .ShowDetails:
             print("ShowDetails")
             guard let indexPath = countryTableView.indexPathForSelectedRow else {
-
                 fatalError("Couldnt find the clicked index path")
             }
             guard let selectedCountry = dataSource?.item(at: indexPath) else {
@@ -66,6 +64,4 @@ class CountriesViewController: UIViewController, SegueHandlerType {
             countryTableView.deselectRow(at: indexPath, animated: true)
         }
     }
-
-
 }

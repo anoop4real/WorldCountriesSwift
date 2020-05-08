@@ -304,26 +304,26 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = anoopm;
 				TargetAttributes = {
 					76AE48DA1DB359960086AF94 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 6UT7M6DT43;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1120;
 						ProvisioningStyle = Automatic;
 					};
 					76AE48EE1DB359960086AF94 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 6UT7M6DT43;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1120;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 76AE48DA1DB359960086AF94;
 					};
 					76AE48F91DB359970086AF94 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 6UT7M6DT43;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1120;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 76AE48DA1DB359960086AF94;
 					};
@@ -331,7 +331,7 @@
 			};
 			buildConfigurationList = 76AE48D61DB359960086AF94 /* Build configuration list for PBXProject "WorldCountriesSwift" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -487,6 +487,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -546,6 +547,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -604,7 +606,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.anoop.WorldCountriesSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -618,7 +620,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.anoop.WorldCountriesSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -633,7 +635,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.anoop.WorldCountriesSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WorldCountriesSwift.app/WorldCountriesSwift";
 			};
 			name = Debug;
@@ -649,7 +651,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.anoop.WorldCountriesSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WorldCountriesSwift.app/WorldCountriesSwift";
 			};
 			name = Release;
@@ -664,7 +666,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.anoop.WorldCountriesSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = WorldCountriesSwift;
 			};
 			name = Debug;
@@ -679,7 +681,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.anoop.WorldCountriesSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = WorldCountriesSwift;
 			};
 			name = Release;

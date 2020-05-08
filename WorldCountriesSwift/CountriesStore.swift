@@ -9,7 +9,6 @@
 import Foundation
 
 class CountriesStore {
-
     // Shared Instance
     static let sharedStore = CountriesStore()
 
@@ -18,68 +17,62 @@ class CountriesStore {
     private var networkManager = NetworkDataManager.sharedNetworkmanager
 
     // MARK: - GET COUNTRIES
+
     // Method to get the country names and country codes.
     func countryData() -> [SimpleCountry] {
-
         // if array already contains data then just return it.
         if !countryArray.isEmpty {
-
             return countryArray
         }
         for countryCode in NSLocale.isoCountryCodes {
-
             var countryName: String? = NSLocale().displayName(forKey: .countryCode, value: countryCode)
             if countryName != nil {
-
             } else {
-
                 countryName = NSLocale(localeIdentifier: "en_US").displayName(forKey: .countryCode, value: countryCode)
             }
 
             let simpleCountry = SimpleCountry(countryName: countryName!, countryCode: countryCode)
             countryArray.append(simpleCountry)
         }
-        countryArray = countryArray.sorted { $0.countryName < $1.countryName}
+        countryArray = countryArray.sorted { $0.countryName < $1.countryName }
 
         return countryArray
     }
-    func fetchDetailsOfCountryWith(code: String, completion:@escaping (_ data: [GenericCellData], _ error: Error?) -> Void) -> Void {
 
+    func fetchDetailsOfCountryWith(code: String, completion: @escaping (_ data: [GenericCellData], _ error: Error?) -> Void) {
         let url = createURLFromParameters(parameters: [:], pathparam: code)
         let urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 2.0)
 
-        networkManager.fetchDataWithUrlRequest(urlRequest) {[weak self] (status, anyData) in
-            if let countryDict = anyData as? [String:Any] {
+        networkManager.fetchDataWithUrlRequest(urlRequest) { [weak self] _, anyData in
+            if let countryDict = anyData as? [String: Any] {
                 completion((self?.countryDataWith(countryDict))!, nil)
-
             }
             print(anyData)
         }
     }
-    private func countryDataWith(_ dictionary: [String: Any]) -> [GenericCellData] {
 
+    private func countryDataWith(_ dictionary: [String: Any]) -> [GenericCellData] {
         var countryDetailsArray = [GenericCellData]()
 
         for key in dictionary.keys {
             if let value = dictionary[key] as? String {
-
                 let cellData = createGenericCellData(with: key, and: value)
                 countryDetailsArray.append(cellData)
             }
         }
         return countryDetailsArray
     }
-    private func createGenericCellData(with key: String, and detail: String) -> GenericCellData {
 
+    private func createGenericCellData(with key: String, and detail: String) -> GenericCellData {
         let celldata = GenericCellData(with: key, and: detail)
         return celldata
     }
-    private func createURLFromParameters(parameters: [String:Any], pathparam: String?) -> URL {
 
+    private func createURLFromParameters(parameters: [String: Any], pathparam: String?) -> URL {
         var components = URLComponents()
         components.scheme = Constants.CountryAPIDetails.APIScheme
-        components.host   = Constants.CountryAPIDetails.APIHost
-        components.path   = Constants.CountryAPIDetails.APIPath
+        components.host = Constants.CountryAPIDetails.APIHost
+        components.path = Constants.CountryAPIDetails.APIPath
         if let paramPath = pathparam {
             components.path = Constants.CountryAPIDetails.APIPath + "\(paramPath)"
         }
@@ -93,5 +86,4 @@ class CountriesStore {
 
         return components.url!
     }
-
 }

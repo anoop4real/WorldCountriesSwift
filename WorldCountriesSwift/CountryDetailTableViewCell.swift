@@ -9,9 +9,8 @@
 import UIKit
 
 class CountryDetailTableViewCell: UITableViewCell {
-
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var detailLabel: UILabel!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var detailLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,10 +21,9 @@ class CountryDetailTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configureCell(with country: GenericCellData) {
 
-        self.titleLabel.text  = country.title
+    func configureCell(with country: GenericCellData) {
+        self.titleLabel.text = country.title
         self.detailLabel.text = country.detail
     }
-
 }
